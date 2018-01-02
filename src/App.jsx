@@ -1,37 +1,65 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-
-class LikeButton extends Component {
-  constructor () {
+class App extends Component {
+  constructor(){
     super()
-    this.state = { isLiked: false }
+    this.state= {
+      username:'111',
+      content:'33333',
+      arr:[]
+    }
   }
-
-  handleClickOnLikeButton () {
-    this.setState({isLiked:!this.state.isLiked})
+  change(e){
+    this.setState({
+      username:e.target.value
+    })
+  }
+  ContentChange (event) {
+    this.setState({
+      content: event.target.value
+    })
+  }
+  setArr(){
+    console.log("3333")
+    let username = this.state.username
+    let content  = this.state.content
+    this.setState({
+      arr:this.state.arr.concat({
+        username:username,
+        content:content
+      })
+    })
     this.setState(function(state){
-      console.log(state);
-     return {a:'334444哦哦哦'}
-   })
+      console.log(state)
+    })
   }
-
-  render () {
-    return (
-      <button onClick={this.handleClickOnLikeButton.bind(this)}>
-        {this.state.isLiked ? '取消' : '点赞'} 👍
-      </button>
-    )
-  }
-}
-
-class Index extends Component {
   render () {
     return (
       <div>
-        <LikeButton />
+        <div>
+          用户名: <input type="text" value={this.state.username} 
+          onChange={this.change.bind(this)}
+          />
+          <div>{this.state.username}</div>
+          <br/>
+          评论内容 <input type="text" value={this.state.content}
+          onChange = {this.ContentChange.bind(this)}
+          />
+          <br/>
+          <button onClick = {this.setArr.bind(this)}>提交</button>
+        </div>
+        <div>
+          <ul>  
+            {this.state.arr.map((ele,index)=>{
+              return (<li key={index+1}>  
+              <span>{ele.username}</span>
+              <p>{ele.content}</p>
+            </li>)
+            })}
+          </ul>
+        </div>
       </div>
     )
   }
 }
-
-export default Index;
+export default App;
