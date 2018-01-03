@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
+import Header  from './common/Header'
 class App extends Component {
   constructor(){
     super()
@@ -36,6 +37,7 @@ class App extends Component {
   render () {
     return (
       <div>
+        <Header />
         <div>
           用户名: <input type="text" value={this.state.username} 
           onChange={this.change.bind(this)}
