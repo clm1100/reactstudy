@@ -17,7 +17,7 @@ class Header extends Component {
         let b = 110000;
         var bb = this.state.a
         return (
-            <div>
+            <div className='Header'>
                 <h2>{bb}</h2>
                 <h1>{b}</h1>
                 <input type="text" />
