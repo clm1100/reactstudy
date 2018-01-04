@@ -14,8 +14,6 @@ class App extends Component {
     }
   }
   setArr({username,content}) {
-    console.log("22222222222")
-    console.log(this);  
     this.setState({
       arr: this.state.arr.concat({
         username: username,
