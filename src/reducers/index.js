@@ -19,4 +19,18 @@ let abc = (state = {a:0}, action) => {
     }
   }
 
-  export default combineReducers({abc})
+
+let arr = (state = [], action) => {
+    switch (action.type) {
+      case 'ADDATTR':
+        // return state.concat([action.payload])
+        return [...state,action.payload]
+      default:
+        return state
+    }
+  }
+
+
+
+
+  export default combineReducers({abc,arr})
