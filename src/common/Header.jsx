@@ -13,8 +13,8 @@ class Header extends Component {
         }
     }
     setA(e) {
-       console.log(this.state.a)
        this.props.addAttr({title:this.state.a,id:Math.random()*100000000})
+       this.setState({a:''})
     }
     change(e){
         this.setState({
@@ -22,20 +22,16 @@ class Header extends Component {
         })
     }
     render() {
-        let b = 110000;
-        var bb = this.state.a
         return (
             <div className='Header'>
             <ul>
                 {/* <li >ceshi!!!</li> */}
-                {/* {this.props.active.map(e=>{
+                {this.props.arr.map(e=>{
                     return (<li key={e.id}>{e.title}</li>)
-                })} */}
-                {this.props.arr}
+                })}
+                {this.props.arr.length}
             </ul>
             <h1>{this.props.active}</h1>
-                <h2>{bb}</h2>
-                <h1>{b}</h1>
                 <input value={this.state.a} type="text"  onChange={this.change.bind(this)}/>
                 <button  onClick={this.setA.bind(this)}>添加</button>
             </div>
