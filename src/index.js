@@ -25,7 +25,6 @@ import { createStore } from 'redux'
 import Counter from './components/Counter'
 import Hbb from './components/Hbb'
 import reducer from './reducers'
-
 const store = createStore(reducer)
 const rootEl = document.getElementById('root')
 

@@ -10,13 +10,14 @@ class Counter extends Component {
         return (
             <div>
                 <button onClick={this.props.onClick.bind(this)}>按钮</button>
+                <button onClick={this.props.onClick1}>按钮</button>
             </div>
         )
     }
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    active: state
+    active: state.abc.a
   })
 
   const mapDispatchToProps = (dispatch, ownProps) => ({
@@ -24,6 +25,10 @@ const mapStateToProps = (state, ownProps) => ({
     //   dispatch(setVisibilityFilter(ownProps.filter))
       dispatch({type:'INCREMENT'})
     },
+    onClick1: () => {
+        //   dispatch(setVisibilityFilter(ownProps.filter))
+          dispatch({type:'DECREMENT'})
+        },
     hub:()=>{
         console.log(this);
         console.log("3333333333")
