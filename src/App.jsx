@@ -25,6 +25,7 @@ class App extends Component {
     })
   }
   render() {
+    console.log(this.props,'iiiiiiiiiii')
     return (
       <div>
         <Frominput setArr = {this.setArr.bind(this)} />

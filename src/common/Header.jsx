@@ -13,7 +13,11 @@ class Header extends Component {
         }
     }
     setA(e) {
-       this.props.addAttr({title:this.state.a,id:Math.random()*100000000})
+    //    this.props.addAttr({title:this.state.a,id:Math.random()*100000000})
+       this.props. dispatch({
+        type:'ADDATTR',
+        payload:{title:this.state.a,id:Math.random()*100000000}
+    })
        this.setState({a:''})
     }
     change(e){
@@ -54,4 +58,4 @@ const mapDispatchToProps=(dispatch,ownprops)=>{
         }
     }
 }
-export default  connect(mapStateToProps,mapDispatchToProps)(Header)
+export default  connect(mapStateToProps)(Header)

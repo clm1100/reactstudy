@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import Header from "../common/Header.jsx";
 class Hbb extends Component{
     constructor(props){
-        console.log(props)
         super(props)
     }
     render(){
