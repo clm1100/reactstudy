@@ -24,17 +24,13 @@ import ReactDOM from 'react-dom'
 import { createStore } from 'redux'
 import Counter from './components/Counter'
 import Hbb from './components/Hbb'
+import App from './components/App'
 import reducer from './reducers'
 const store = createStore(reducer)
 const rootEl = document.getElementById('root')
 
 const render = () => ReactDOM.render(
-    <Provider store={store}>
-        <div>
-        <Hbb />
-        <Counter/>
-        </div>
-    </Provider>
+    <App/>
   ,rootEl
 )
 render()
