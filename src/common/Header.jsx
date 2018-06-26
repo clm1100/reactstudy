@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 
-// const mapStateToProps = (state, ownProps) => ({
-//     active: state.abc.a
-//   })
 
 class Header extends Component {
     constructor() {
@@ -13,12 +10,11 @@ class Header extends Component {
         }
     }
     setA(e) {
-    //    this.props.addAttr({title:this.state.a,id:Math.random()*100000000})
-       this.props. dispatch({
-        type:'ADDATTR',
-        payload:{title:this.state.a,id:Math.random()*100000000}
-    })
-       this.setState({a:''})
+        this.props.dispatch({
+            type: 'ADDATTR',
+            payload: { title: this.state.a, id: Math.random() * 100000000 }
+        })
+        this.setState({ a: '' })
     }
     change(e){
         this.setState({
@@ -29,7 +25,6 @@ class Header extends Component {
         return (
             <div className='Header'>
             <ul>
-                {/* <li >ceshi!!!</li> */}
                 {this.props.arr.map(e=>{
                     return (<li key={e.id}>{e.title}</li>)
                 })}

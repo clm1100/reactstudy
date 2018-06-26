@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import Header from './common/Header'
+import Head from "./common/Head";
 import Frominput from './components/Forminput'
 import Content from './components/Content'
 class App extends Component {
@@ -28,6 +29,8 @@ class App extends Component {
     console.log(this.props,'iiiiiiiiiii')
     return (
       <div>
+        <Header />
+        <Head />
         <Frominput setArr = {this.setArr.bind(this)} />
         <Frominput setArr = {this.setArr.bind(this)} />
         <Content arr={this.state.arr} />
