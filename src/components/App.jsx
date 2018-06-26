@@ -8,7 +8,7 @@ import About from './routeComponent/about'
 export default function Test(){
     return (
         <HashRouter>
-            <div>2222233334444
+            <div>2333
                 <Route exact path="/" component={Home} ></Route>
                 <Route path="/list" component={List} />
                 <Route path="/about" component={About}></Route>
