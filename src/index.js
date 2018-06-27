@@ -1,36 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App.jsx';
-import registerServiceWorker from './registerServiceWorker';
 import './static/index.css'
 
-import { createStore } from 'redux'
+import { createStore,applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import reducer from './reducers'
-const store = createStore(reducer)
-
+//1、 同步redux
+// const store = createStore(reducer)
+// 2、异步redux的使用方法;
+import {createLogger} from 'redux-logger';
+import thunk from 'redux-thunk';
+const logger = createLogger();
+const store = createStore(
+    reducer,
+    applyMiddleware(thunk,logger)
+  );
 
 ReactDOM.render( 
     <Provider store={store}>
     < App / >
     </Provider>
  , document.getElementById('root'));
-registerServiceWorker();
 
 
-// import { Provider } from 'react-redux'
-// import React from 'react'
-// import ReactDOM from 'react-dom'
-// import { createStore } from 'redux'
-// import Counter from './components/Counter'
-// import Hbb from './components/Hbb'
-// import App from './components/App'
-// import reducer from './reducers'
-// const store = createStore(reducer)
-// const rootEl = document.getElementById('root')
 
-// const render = () => ReactDOM.render(
-//     <App/>
-//   ,rootEl
-// )
-// render()

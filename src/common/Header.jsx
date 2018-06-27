@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
+import Test1 from './Test1'
+
+
 
 
 class Header extends Component {
@@ -9,12 +12,18 @@ class Header extends Component {
             a:222
         }
     }
+    // 发送异步action dispatch的参数默认为对象,但是接住了thunk,之后dispatch的对象就可以使用函数了，
+    // 这个函数有两个参数,dispatch和getState,异步操作完成知乎发送dispatch;
     setA(e) {
-        this.props.dispatch({
-            type: 'ADDATTR',
-            payload: { title: this.state.a, id: Math.random() * 100000000 }
-        })
-        this.setState({ a: '' })
+        this.props.dispatch(function(dispatch,getState){
+            setTimeout(()=>{
+                dispatch({
+                    type: 'ADDATTR',
+                    payload: { title: this.state.a, id: Math.random() * 100000000 }
+                })
+                this.setState({ a: '' })
+            },3000)
+        }.bind(this))
     }
     change(e){
         this.setState({
@@ -24,6 +33,7 @@ class Header extends Component {
     render() {
         return (
             <div className='Header'>
+            <Test1 />
             <ul>
                 {this.props.arr.map(e=>{
                     return (<li key={e.id}>{e.title}</li>)
