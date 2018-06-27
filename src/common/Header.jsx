@@ -42,7 +42,7 @@ const mapStateToProps = (state,ownProps)=>{
         arr:state.arr
     }
 }
-// const mapS
+// const mapDispatchToProps
 const mapDispatchToProps=(dispatch,ownprops)=>{
     return {
         addAttr(payload){
