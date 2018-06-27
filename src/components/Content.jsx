@@ -10,7 +10,7 @@ class Content extends Component {
                 <ul>
                     {this.props.arr.map((ele, index) => {
                         return (<li key={index + 1}>
-                            <span>姓名：{ele.username}</span>
+                            <span>姓1名：{ele.username}</span>
                             <p>内容：{ele.content}</p>
                         </li>)
                     })}
